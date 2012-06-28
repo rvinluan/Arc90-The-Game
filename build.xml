@@ -1,0 +1,38 @@
+<project name="Arc90 Game" default="all" basedir=".">
+	<property name="alias" value="Robert"/>
+  	<property name="keystore.password" value="crayon"/>
+  	<property name="keystore" location="${user.home}/.keystore"/>
+ 	<property name="out.dir" location="${user.home}"/>
+  
+  	<target name="all" depends="init,game.jar,assets.jar" />
+
+   	<!-- Initialize the build process. -->
+  	<target name="init">
+    	<!-- make sure the output directory exists -->
+    	<mkdir dir="${out.dir}" />
+    	</target>
+  	<!-- Make the jar that contains only the game logic -->
+  	<target name="game.jar">
+    	<jar destfile="${out.dir}/game.jar">
+	      	<fileset dir="bin" includes="**/*.class" />
+      	</jar>
+    	<signjar
+	       alias="${alias}" 
+	       storepass="${keystore.password}"
+	       keystore="${keystore}" 
+	       jar="${out.dir}/game.jar"/>
+    	</target>
+  <!-- make the resources jar -->
+  <target name="assets.jar">
+    <jar 
+       destfile="${out.dir}/assets.jar"
+       basedir="${basedir}/assets" />
+    <signjar 
+       alias="${alias}" 
+       storepass="${keystore.password}" 
+       keystore="${keystore}" 
+       jar="${out.dir}/assets.jar" />
+    </target>
+
+</project>
+

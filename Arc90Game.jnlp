@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.0+"
+  codebase="http://www.robertvinluan.com/arc90game"
+  href="Arc90Game.jnlp">
+  <information>
+    <title>Arc 90 - The Game</title>
+    <vendor>Robert Vinluan</vendor>
+    <homepage href="http://www.robertvinluan.com/"/>
+    <description></description>
+    <description kind="short"></description>
+  </information> 
+  <resources>
+    <j2se href="http://java.sun.com/products/autodl/j2se" version="1.6+"/>
+    <jar href="game.jar"/>  
+    <jar href="assets.jar"/>
+    <extension href="http://slick.cokeandcode.com/demos/slick.jnlp"/>
+  </resources>  
+  <application-desc main-class="arc90.rv.ArcGame"/>
+</jnlp>
